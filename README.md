@@ -1,1 +1,1 @@
-Repository for my different nvim configs.
+Nvim configuration with "Oxocarbon" colorscheme.
