@@ -1,3 +1,20 @@
+return {
+  "nyoom-engineering/oxocarbon.nvim",
+  priority = 1000,
+  config = function()
+    vim.opt.background = "dark"
+
+    vim.cmd.colorscheme{"oxocarbon"}
+
+    vim.api.nvim_set_hl(0, "Normal", { bg = "#202020" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#171717" })
+    vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = "#fbbf24" })
+
+    vim.opt.listchars = { multispace = '·' }
+    vim.opt.list = true
+  end
+}
+
 -- return {
 --   "olivercederborg/poimandres.nvim",
 --   priority = 1000, -- make sure it loads first
@@ -45,18 +62,3 @@
 --   end
 -- }
 
-return {
-  "nyoom-engineering/oxocarbon.nvim",
-  priority = 1000,
-  config = function()
-    vim.opt.background = "dark"
-
-    vim.cmd.colorscheme{"oxocarbon"}
-
-    vim.api.nvim_set_hl(0, "Normal", { bg = "#202020" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#171717" })
-
-    vim.opt.listchars = { multispace = '·' }
-    vim.opt.list = true
-  end
-}
