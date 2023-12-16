@@ -13,17 +13,33 @@ return {
     -- Telescope recolor
     local oxocarbon = require("oxocarbon")
 
+    local colores = {
+      azul = "#66ade0",
+      verde = "#008000",
+      rosa = "#e280b8",
+      amarillo = "#FFff30",
+      rojo = "#FF4A4A",
+      fg = "#c3ccdc",
+      bg = "none",
+      inactive_bg = "#2c3043",
+    }
+
     vim.api.nvim_set_hl(0, "TelescopeBorder", {fg = oxocarbon.blend, bg = oxocarbon.blend})
-    vim.api.nvim_set_hl(0, "TelescopePromptBorder", {fg = oxocarbon.base02, bg = oxocarbon.base02})
+    vim.api.nvim_set_hl(0, "TelescopePromptBorder", {fg = colores.rosa, bg = oxocarbon.base02})
     vim.api.nvim_set_hl(0, "TelescopePromptNormal", {fg = oxocarbon.base05, bg = oxocarbon.base02})
     vim.api.nvim_set_hl(0, "TelescopePromptPrefix", {fg = oxocarbon.base08, bg = oxocarbon.base02})
-    vim.api.nvim_set_hl(0, "TelescopeNormal", {fg = oxocarbon.none, bg = oxocarbon.blend})
+    vim.api.nvim_set_hl(0, "TelescopeNormal", {fg = colores.azul, bg = oxocarbon.blend})
     vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {fg = oxocarbon.base02, bg = oxocarbon.base12})
     vim.api.nvim_set_hl(0, "TelescopePromptTitle", {fg = oxocarbon.base02, bg = oxocarbon.base11})
     vim.api.nvim_set_hl(0, "TelescopeResultsTitle", {fg = oxocarbon.blend, bg = oxocarbon.blend})
     vim.api.nvim_set_hl(0, "TelescopeSelection", {fg = oxocarbon.none, bg = oxocarbon.base02})
     vim.api.nvim_set_hl(0, "TelescopePreviewLine", {fg = oxocarbon.none, bg = oxocarbon.base01})
 
+    -- Lualine buffers recolor
+
+    -- vim.api.nvim_set_hl(0, "lualine_b_buffers_active", {guifg = "#ffff00"})
+
+    --
     vim.opt.listchars = { multispace = '·' }
     vim.opt.list = true
   end

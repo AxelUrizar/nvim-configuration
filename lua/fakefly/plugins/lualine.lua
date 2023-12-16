@@ -6,40 +6,44 @@ return {
     local lazy_status = require("lazy.status") -- to configure lazy pending updates count
 
     local colors = {
-      blue = "#65D1FF",
-      green = "#3EFFDC",
-      violet = "#FF61EF",
-      yellow = "#FFDA7B",
+      blue = "#00aaff",
+      cyan = "#06ede0",
+      green = "#008000",
+      violet = "#e280f8",
+      yellow = "#FFff30",
       red = "#FF4A4A",
-      fg = "#c3ccdc",
+      grey = "#808080",
+      semilightgray = "#a9a9a9",
+      fg = "#ffffff",
       bg = "none",
-      inactive_bg = "#2c3043",
+      custom_bg = "#3b3b3b",
+      inactive_bg = "#202020",
     }
 
     local my_lualine_theme = {
       normal = {
-        a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
+        a = { bg = colors.violet, fg = colors.custom_bg, gui = "bold" },
+        b = { bg = colors.custom_bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       insert = {
-        a = { bg = colors.green, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
+        a = { bg = colors.red, fg = colors.custom_bg, gui = "bold" },
+        b = { bg = colors.custom_bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       visual = {
-        a = { bg = colors.violet, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
+        a = { bg = colors.yellow, fg = colors.custom_bg, gui = "bold" },
+        b = { bg = colors.custom_bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       command = {
-        a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
+        a = { bg = colors.cyan, fg = colors.custom_bg, gui = "bold" },
+        b = { bg = colors.custom_bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       replace = {
-        a = { bg = colors.red, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
+        a = { bg = colors.green, fg = colors.custom_bg, gui = "bold" },
+        b = { bg = colors.custom_bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       inactive = {
@@ -55,13 +59,15 @@ return {
         theme = my_lualine_theme,
       },
       sections = {
+        lualine_b = { 'buffers' },
+        lualine_c = { '' },
         lualine_x = {
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,
             color = { fg = "#ff9e64" },
           },
-          { "encoding" },
+          { "branch" },
           { "fileformat" },
           { "filetype" },
         },
