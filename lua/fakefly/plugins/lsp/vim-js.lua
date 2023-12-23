@@ -1,3 +1,0 @@
-return {
-  "yuezk/vim-js"
-}

@@ -1,3 +1,0 @@
-return {
-  "mxw/vim-jsx"
-}
