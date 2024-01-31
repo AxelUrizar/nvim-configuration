@@ -71,6 +71,13 @@ return {
     end
 
     -- configure html server
+    lspconfig["gopls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "go", "gomod", "rapid" },
+    })
+
+    -- configure html server
     lspconfig["html"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
