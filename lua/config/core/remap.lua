@@ -2,7 +2,11 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+-- File explorer
+
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", ":Telescope file_browser path=%:p:h select_buffer=true grouped=true<CR>")
 
 -- CMP saltar entre variables de snippets
 
@@ -21,8 +25,8 @@ map('n', '<A-l>', '<cmd>bnext<CR>', opts)
 map('n', '<A-c>', '<cmd>bdelete<CR>', opts)
 
 -- Moverse y crear splits
-vim.keymap.set("n", "<A-v>", ":split<cr>", opts)
-vim.keymap.set("n", "<A-u>", ":vsplit<cr>", opts)
+-- vim.keymap.set("n", "<A-v>", ":split<cr>", opts)
+-- vim.keymap.set("n", "<A-u>", ":vsplit<cr>", opts)
 vim.keymap.set("n", "<C-c>", ":q<cr>", opts)
 
 vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
@@ -37,4 +41,4 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Enter cmd with "Telescope"
 map('n', '<leader>t', "<cmd>Telescope<CR>", opts)
-
+map('t', '<Esc>', "<C-\\><C-n>", opts)

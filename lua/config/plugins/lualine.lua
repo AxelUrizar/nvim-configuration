@@ -6,12 +6,12 @@ return {
     local lazy_status = require("lazy.status") -- to configure lazy pending updates count
 
     local colors = {
-      blue = "#00aaff",
-      cyan = "#06ede0",
-      green = "#008000",
-      violet = "#e280f8",
-      yellow = "#FFff30",
-      red = "#FF4A4A",
+      blue = "#40aaff",
+      cyan = "#80ede0",
+      green = "#a0f0a0",
+      violet = "#e2b0f8",
+      yellow = "#FFff70",
+      red = "#FF7A7A",
       grey = "#808080",
       semilightgray = "#a9a9a9",
       fg = "#ffffff",
@@ -22,12 +22,12 @@ return {
 
     local my_lualine_theme = {
       normal = {
-        a = { bg = colors.violet, fg = colors.custom_bg, gui = "bold" },
+        a = { bg = colors.cyan, fg = colors.custom_bg, gui = "bold" },
         b = { bg = colors.custom_bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       insert = {
-        a = { bg = colors.red, fg = colors.custom_bg, gui = "bold" },
+        a = { bg = colors.green, fg = colors.custom_bg, gui = "bold" },
         b = { bg = colors.custom_bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
@@ -37,7 +37,7 @@ return {
         c = { bg = colors.bg, fg = colors.fg },
       },
       command = {
-        a = { bg = colors.cyan, fg = colors.custom_bg, gui = "bold" },
+        a = { bg = colors.violet, fg = colors.custom_bg, gui = "bold" },
         b = { bg = colors.custom_bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
@@ -56,7 +56,9 @@ return {
     -- configure lualine with modified theme
     lualine.setup({
       options = {
+        -- Usar colores propios
         theme = my_lualine_theme,
+        -- theme = 'modus-vivendi',
       },
       sections = {
         lualine_b = { 'buffers' },
@@ -75,3 +77,4 @@ return {
     })
   end,
 }
+

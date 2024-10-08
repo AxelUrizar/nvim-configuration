@@ -1,2 +1,2 @@
-require("fakefly.core")
-require("fakefly.lazy")
+require("config.core")
+require("config.lazy")
