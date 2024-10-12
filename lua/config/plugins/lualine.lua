@@ -70,7 +70,7 @@ return {
             color = { fg = "#ff9e64" },
           },
           { "branch" },
-          { "fileformat" },
+          { "diagnostics", sources = { "nvim_lsp" }, color_error = "#ff7a7a", color_warn = "#ff9e64", color_info = "#80ede0" },
           { "filetype" },
         },
       },

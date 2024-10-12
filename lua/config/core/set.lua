@@ -32,6 +32,18 @@ vim.opt.list = true
 
 ------------------ COLORSCHEME ---------------------
 
+local colorscheme = {
+  light_cyan = "#8df2f2",
+  light_blue = "#8dc1f2",
+  light_green = "#8df28d",
+  light_yellow = "#f2f28d",
+  light_red = "#f28d8d",
+  light_purple = "#ccbbff",
+}
+
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+
+vim.api.nvim_set_hl(0, "Statement", { fg = colorscheme.light_purple })
+vim.api.nvim_set_hl(0, "htmlTagName", { fg = colorscheme.light_purple })
