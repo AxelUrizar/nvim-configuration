@@ -48,5 +48,7 @@ vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
 
+-- LSP Colors
 vim.api.nvim_set_hl(0, "Statement", { fg = colorscheme.light_purple })
 vim.api.nvim_set_hl(0, "htmlTagName", { fg = colorscheme.light_purple })
+vim.api.nvim_set_hl(0, "PreProc", { fg = colorscheme.light_purple })
