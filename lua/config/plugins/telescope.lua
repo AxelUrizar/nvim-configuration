@@ -13,6 +13,7 @@ return {
       pickers = {
         find_files = {
           theme = 'ivy',
+          find_command = { 'rg', '--files', '--hidden', '--no-ignore', '--follow', '--glob', '!.git' },
         },
         git_files = {
           theme = 'ivy',
