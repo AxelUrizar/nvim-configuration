@@ -10,6 +10,9 @@ return {
     vim.keymap.set('n', '<leader>pb', builtin.buffers, {})
     vim.keymap.set('n', '<leader>ph', builtin.help_tags, {})
     require('telescope').setup({
+      defaults = {
+        file_ignore_patterns = { 'node_modules', '.git', '.next' },
+      },
       pickers = {
         find_files = {
           theme = 'ivy',
