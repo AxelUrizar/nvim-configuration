@@ -32,6 +32,10 @@ vim.opt.updatetime = 50
 vim.opt.listchars = { multispace = '·' }
 vim.opt.list = true
 
+-- Foldear bloques de código
+vim.opt.foldmethod = "indent"
+vim.opt.foldlevel = 99
+
 
 ------------------ COLORSCHEME ---------------------
 
