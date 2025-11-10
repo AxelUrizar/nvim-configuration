@@ -6,7 +6,8 @@ vim.g.mapleader = " "
 -- File explorer
 
 -- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>pv", ":Telescope file_browser path=%:p:h select_buffer=true grouped=true initial_mode=normal<CR>")
+-- vim.keymap.set("n", "<leader>pv", ":Telescope file_browser path=%:p:h select_buffer=true grouped=true initial_mode=normal<CR>")
+vim.keymap.set("n", "<leader>pv", ":Telescope file_browser path=%:p:h select_buffer=true grouped=true<CR>")
 
 -- CMP saltar entre variables de snippets
 
@@ -38,6 +39,10 @@ vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", opts)
 vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", opts)
 vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+
+-- Leap mappings
+vim.keymap.set({'n', 'x', 'o'}, 's',  '<Plug>(leap-forward)')
+vim.keymap.set({'n', 'x', 'o'}, 'S',  '<Plug>(leap-backward)')
 
 -- Enter "Telescope" builtin with <leader>t
 map('n', '<leader>t', "<cmd>Telescope<CR>", opts)
