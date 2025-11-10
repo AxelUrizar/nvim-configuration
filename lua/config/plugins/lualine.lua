@@ -24,27 +24,27 @@ return {
       normal = {
         a = { bg = colors.cyan, fg = colors.custom_bg, gui = "bold" },
         b = { bg = colors.custom_bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        c = { bg = colors.inactive_bg, fg = colors.fg },
       },
       insert = {
         a = { bg = colors.green, fg = colors.custom_bg, gui = "bold" },
         b = { bg = colors.custom_bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        c = { bg = colors.inactive_bg, fg = colors.fg },
       },
       visual = {
         a = { bg = colors.yellow, fg = colors.custom_bg, gui = "bold" },
         b = { bg = colors.custom_bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        c = { bg = colors.inactive_bg, fg = colors.fg },
       },
       command = {
         a = { bg = colors.violet, fg = colors.custom_bg, gui = "bold" },
         b = { bg = colors.custom_bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        c = { bg = colors.inactive_bg, fg = colors.fg },
       },
       replace = {
         a = { bg = colors.green, fg = colors.custom_bg, gui = "bold" },
         b = { bg = colors.custom_bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        c = { bg = colors.inactive_bg, fg = colors.fg },
       },
       inactive = {
         a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
@@ -67,11 +67,11 @@ return {
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,
-            color = { fg = "#ff9e64" },
+            color = { bg = colors.inactive_bg, fg = "#ff9e64" },
           },
-          { "branch" },
-          { "diagnostics", sources = { "nvim_lsp" }, color_error = "#ff7a7a", color_warn = "#ff9e64", color_info = "#80ede0" },
-          { "filetype" },
+          { "branch", color = { bg = colors.inactive_bg, fg = colors.green } },
+          { "diagnostics", color = { bg = colors.inactive_bg } , sources = { "nvim_lsp" }, color_error = "#ff7a7a", color_warn = "#ff9e64", color_info = "#80ede0" },
+          { "filetype", color = { bg = colors.inactive_bg, fg = colors.fg } },
         },
       },
     })

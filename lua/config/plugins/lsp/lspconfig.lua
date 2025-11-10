@@ -7,7 +7,7 @@ return {
   },
   config = function()
     -- import lspconfig plugin
-    local lspconfig = require("lspconfig")
+    local lspconfig = vim.lsp.config
 
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -69,47 +69,63 @@ return {
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
     -- Change the Diagnostic symbols in the sign column (gutter)
-    local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
+    -- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+    -- for type, icon in pairs(signs) do
+    --   local hl = "DiagnosticSign" .. type
+    --   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+    -- end
+    vim.diagnostic.config({
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = " ",
+          [vim.diagnostic.severity.WARN]  = " ",
+          [vim.diagnostic.severity.HINT]  = " ",
+          [vim.diagnostic.severity.INFO]  = " ",
+        },
+        numhl = {
+          [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+          [vim.diagnostic.severity.WARN]  = "DiagnosticSignWarn",
+          [vim.diagnostic.severity.HINT]  = "DiagnosticSignHint",
+          [vim.diagnostic.severity.INFO]  = "DiagnosticSignInfo",
+        },
+      },
+    })
 
     -- configure html server
-    lspconfig["gopls"].setup({
+    lspconfig("gopls",{
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "go", "gomod", "rapid" },
     })
 
     -- configure html server
-    lspconfig["html"].setup({
+    lspconfig("html",{
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- configure typescript server with plugin
-    lspconfig["ts_ls"].setup({
+    lspconfig("ts_ls",{
       capabilities = capabilities,
       on_attach = on_attach,
       detached = false
     })
 
     -- configure css server
-    lspconfig["cssls"].setup({
+    lspconfig("cssls", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- configure tailwindcss server
-    lspconfig["tailwindcss"].setup({
+    lspconfig("tailwindcss",{
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
     })
 
     -- configure svelte server
-    lspconfig["svelte"].setup({
+    lspconfig("svelte",{
       capabilities = capabilities,
       on_attach = function(client, bufnr)
         on_attach(client, bufnr)
@@ -126,33 +142,33 @@ return {
     })
 
     -- configure prisma orm server
-    lspconfig["prismals"].setup({
+    lspconfig("prismals",{
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- configure graphql language server
-    lspconfig["graphql"].setup({
+    lspconfig("graphql",{
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
     })
 
     -- configure emmet language server
-    lspconfig["emmet_ls"].setup({
+    lspconfig("emmet_ls",{
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
     })
 
     -- configure python server
-    lspconfig["pyright"].setup({
+    lspconfig("pyright",{
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- configure lua server (with special settings)
-    lspconfig["lua_ls"].setup({
+    lspconfig("lua_ls",{
       capabilities = capabilities,
       on_attach = on_attach,
       settings = { -- custom settings for lua
