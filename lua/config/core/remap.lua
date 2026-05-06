@@ -47,6 +47,3 @@ vim.keymap.set({'n', 'x', 'o'}, 'S',  '<Plug>(leap-backward)')
 -- Enter "Telescope" builtin with <leader>t
 map('n', '<leader>t', "<cmd>Telescope<CR>", opts)
 map('t', '<Esc>', "<C-\\><C-n>", opts)
-
--- Enter Nvim-Tree with <leader>e
-map('n', '<leader>e', "<cmd>NvimTreeToggle<CR>", opts)
