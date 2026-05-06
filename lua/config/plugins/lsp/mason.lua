@@ -28,15 +28,17 @@ return {
       -- list of servers for mason to install
       ensure_installed = {
         "ts_ls",
+        "ts-standard", -- ts-standard server for linting
         "html",
         "cssls",
         "tailwindcss",
-        "svelte",
+        -- "svelte",
         "lua_ls",
         "graphql",
         "emmet_ls",
         "prismals",
         "pyright",
+        "eslint",
         -- "vbsserver"
       },
       -- auto-install configured servers (with lspconfig)
@@ -52,4 +54,3 @@ return {
     })
   end,
 }
-

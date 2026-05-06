@@ -75,6 +75,11 @@ return {
     --   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     -- end
     vim.diagnostic.config({
+      virtual_text = {
+        spacing = 2,
+        prefix = "●",
+        severity_sort = true,
+      },
       signs = {
         text = {
           [vim.diagnostic.severity.ERROR] = " ",
@@ -91,21 +96,22 @@ return {
       },
     })
 
-    -- configure html server
-    lspconfig("gopls",{
-      capabilities = capabilities,
-      on_attach = on_attach,
-      filetypes = { "go", "gomod", "rapid" },
-    })
+    -- configure eslint server
+    -- configure go server
+    -- lspconfig("gopls",{
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    --   filetypes = { "go", "gomod", "rapid" },
+    -- })
 
     -- configure html server
-    lspconfig("html",{
+    lspconfig("html", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- configure typescript server with plugin
-    lspconfig("ts_ls",{
+    lspconfig("ts_ls", {
       capabilities = capabilities,
       on_attach = on_attach,
       detached = false
@@ -118,57 +124,63 @@ return {
     })
 
     -- configure tailwindcss server
-    lspconfig("tailwindcss",{
+    lspconfig("tailwindcss", {
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
     })
 
     -- configure svelte server
-    lspconfig("svelte",{
-      capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
-
-        vim.api.nvim_create_autocmd("BufWritePost", {
-          pattern = { "*.js", "*.ts" },
-          callback = function(ctx)
-            if client.name == "svelte" then
-              client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
-            end
-          end,
-        })
-      end,
-    })
+    -- lspconfig("svelte",{
+    --   capabilities = capabilities,
+    --   on_attach = function(client, bufnr)
+    --     on_attach(client, bufnr)
+    --
+    --     vim.api.nvim_create_autocmd("BufWritePost", {
+    --       pattern = { "*.js", "*.ts" },
+    --       callback = function(ctx)
+    --         if client.name == "svelte" then
+    --           client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
+    --         end
+    --       end,
+    --     })
+    --   end,
+    -- })
 
     -- configure prisma orm server
-    lspconfig("prismals",{
+    lspconfig("prismals", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- configure graphql language server
-    lspconfig("graphql",{
+    lspconfig("graphql", {
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
     })
 
     -- configure emmet language server
-    lspconfig("emmet_ls",{
+    lspconfig("emmet_ls", {
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
     })
 
     -- configure python server
-    lspconfig("pyright",{
+    lspconfig("pyright", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
+    -- configure rust server
+    -- lspconfig("rust_analyzer",{
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    -- })
+
     -- configure lua server (with special settings)
-    lspconfig("lua_ls",{
+    lspconfig("lua_ls", {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = { -- custom settings for lua
@@ -189,4 +201,3 @@ return {
     })
   end,
 }
-
