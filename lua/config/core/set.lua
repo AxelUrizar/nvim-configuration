@@ -68,7 +68,7 @@ vim.api.nvim_set_hl(0, "Type", { fg = colorscheme.light_red })
 -- Texto inline con fondo claro
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = "#ff7a7a", bg = "#3d1f1f", italic = true })
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn",  { fg = "#ffc777", bg = "#3d2e0f", italic = true })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint",  { fg = "#6fc1e9", bg = "#143a5d", italic = true })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint",  { fg = "#6fc1e9", bg = "#142a3d", italic = true })
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo",  { fg = "#4fd6be", bg = "#1a3530", italic = true })
 
 -- Símbolo en el gutter
