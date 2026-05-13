@@ -1,20 +1,25 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+-- Indentation
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
+vim.opt.autoindent = true
+
+vim.opt.cmdheight = 0
 
 vim.opt.wrap = true
 
-vim.opt.swapfile = false
-vim.opt.backup = false
+vim.opt.swapfile = true
+
+vim.opt.backup = true
+vim.opt.backupdir = os.getenv("HOME") .. "/.vim/backup"
 
 -- Just on linux
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false
@@ -36,7 +41,6 @@ vim.opt.list = true
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
 
-
 ------------------ COLORSCHEME ---------------------
 
 local colorscheme = {
@@ -57,3 +61,18 @@ vim.api.nvim_set_hl(0, "Statement", { fg = colorscheme.light_purple })
 vim.api.nvim_set_hl(0, "htmlTagName", { fg = colorscheme.light_purple })
 vim.api.nvim_set_hl(0, "PreProc", { fg = colorscheme.light_purple })
 vim.api.nvim_set_hl(0, "Type", { fg = colorscheme.light_red })
+--
+
+-- Highlight para los diagnostics
+
+-- Texto inline con fondo claro
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = "#ff7a7a", bg = "#3d1f1f", italic = true })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn",  { fg = "#ffc777", bg = "#3d2e0f", italic = true })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint",  { fg = "#6fc1e9", bg = "#142a3d", italic = true })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo",  { fg = "#4fd6be", bg = "#1a3530", italic = true })
+
+-- Símbolo en el gutter
+vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#ff7a7a", bold = true })
+vim.api.nvim_set_hl(0, "DiagnosticSignWarn",  { fg = "#ffc777", bold = true })
+vim.api.nvim_set_hl(0, "DiagnosticSignHint",  { fg = "#6fc1e9", bold = true })
+vim.api.nvim_set_hl(0, "DiagnosticSignInfo",  { fg = "#4fd6be", bold = true })
