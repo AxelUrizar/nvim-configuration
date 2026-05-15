@@ -41,9 +41,21 @@ vim.opt.list = true
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
 
+-- Session options
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 ------------------ COLORSCHEME ---------------------
 
 local colorscheme = {
+  light_cyan = "#8df2f2",
+  light_blue = "#7785AC",
+  light_green = "#A5E6BA",
+  light_yellow = "#f2f28d",
+  light_red = "#f28d8d",
+  light_purple = "#ccbbff",
+}
+
+local colorscheme_alt = {
   light_cyan = "#8df2f2",
   light_blue = "#8dc1f2",
   light_green = "#8df28d",
@@ -58,8 +70,9 @@ vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
 
 -- LSP Colors
 vim.api.nvim_set_hl(0, "Statement", { fg = colorscheme.light_purple })
--- vim.api.nvim_set_hl(0, "htmlTagName", { fg = colorscheme.light_purple })
--- vim.api.nvim_set_hl(0, "PreProc", { fg = colorscheme.light_purple })
+-- vim.api.nvim_set_hl(0, "@variable", { fg = colorscheme.light_green })
+-- vim.api.nvim_set_hl(0, "Special", { fg = "#ffffff" })
+-- vim.api.nvim_set_hl(0, "String", { fg = colorscheme.light_cyan })
 vim.api.nvim_set_hl(0, "Type", { fg = colorscheme.light_red })
 --
 
